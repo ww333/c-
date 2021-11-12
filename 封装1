@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+#include<string>
+class cube
+{
+public:
+	void set(int l,int h,int w)
+	{
+		ml=l;
+		mh=h;
+		mw=w;
+		
+	}
+	int get()
+	{
+		return ml,mh,mw;
+	}
+	int cubeS()
+	{
+		return 2*ml*mh+2*ml*mw+2*mh*mw;
+
+	}
+	int cubeV()
+	{
+		return ml*mh*mw;
+	
+	}
+private:
+	int ml;
+	int mh;
+	int mw;
+};
+int main()
+{
+	int l=0;int h=0;int w=0;
+	class cube c1;
+	class cube c2;
+	cout<<"cube1 L H w"<<endl;
+	cin>>l>>h>>w;
+	c1.set(l,h,w);
+	cout<<c1.cubeS()<<endl;
+	//cout<<c1.get()<<endl;
+	cout<<"cube2 L H w"<<endl;
+	cin>>l>>h>>w;
+	c2.set(l,h,w);
+	//cout<<c2.get()<<endl;
+	system("pause");
+}
