@@ -1,0 +1,93 @@
+#include<iostream>
+using namespace std;
+#include<string>
+class building
+{
+	//声明友元全局函数goodguy 可以访问对类内私有属性
+	friend void goodguy(building &building);
+public:
+	building()
+	{
+		m_sittingroom="客厅";
+			m_bedroom="卧室";
+	
+	}
+public:
+	string m_sittingroom;
+private:
+	string m_bedroom;
+
+};
+void goodguy(building &building)
+{
+	cout<<"好基友访问 "<<building.m_sittingroom<<endl;
+	cout<<"好基友访问 "<<building.m_bedroom<<endl;
+}
+void test1 ()
+{
+	building building;
+	goodguy(building);
+}
+int main ()
+{
+	test1 ();
+	system("pause");
+}
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// 类做友元的实现
+
+#include<iostream>
+using namespace std;
+#include<string>
+class Building;
+class goodguy
+{
+public:
+	//构造函数声明，初始化指针
+	goodguy();
+	//访问building类内属性
+	void visit();
+public:
+	Building *building;
+};
+class Building
+{
+	friend class goodguy;
+public:
+	Building();
+public:
+	string m_sittingroom;
+private:
+	string m_bedroom;
+};
+Building::Building()
+{
+	m_sittingroom="客厅";
+			m_bedroom="卧室";
+}
+goodguy::goodguy()
+{
+	//类内指针需分配堆区内存，否则为空指针
+	building =new Building;
+}
+
+void goodguy::visit()
+{
+	cout<<"好基友访问   "<<building->m_sittingroom<<endl;
+	cout<<"好基友访问  "<<building->m_bedroom<<endl;
+}
+void test1 ()
+{
+	goodguy p;
+	Building b;
+	p.visit();
+}
+
+
+
+int main ()
+{
+	test1 ();
+	system("pause");
+}
