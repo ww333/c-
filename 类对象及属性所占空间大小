@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+#include<string>
+class per
+{
+public:
+	static int b;
+    int a;
+	void func()
+	{
+
+	}
+};
+int per::b=0;
+void test()
+{
+	per p;
+	cout<<"大小     "<<sizeof(p)<<endl;
+}
+void test1()
+{
+	per p;
+	cout<<"大小     "<<sizeof(p)<<endl;
+}
+int main ()
+{
+	//test();
+	test1();
+	system("pause");
+}
