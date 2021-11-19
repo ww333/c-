@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+#include<string>
+class per
+{
+public:
+	//const person *const this;
+	//this指针为指针常量 成员函数后面加const即常量指针常量
+	void showperson() const
+	{
+	   m_b=100;
+	}
+	void func()
+	{
+		a=100;
+	}
+	int a;
+	mutable int m_b;
+	//mutable 在常函数中可以修改的特定关键字；
+};
+void test ()
+{
+	per p;
+	p.showperson();
+}
+void test1 ()
+{
+	const per p;
+	p.m_b=200;
+	//常对象 调用常函数，否则可以修改常对象属性
+	p.func();
+}
+int main ()
+{
+	test ();
+	test1 ();
+	system("pause");
+}
