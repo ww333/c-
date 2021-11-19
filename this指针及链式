@@ -1,0 +1,41 @@
+#include<iostream>
+using namespace std;
+#include<string>
+class per
+{
+public:
+	per(int age)
+	{
+		this->age=age;
+	}
+	/*
+	per peradd(per &p)
+	{
+		this->age+=p.age;
+		return *this;
+	}*/
+	per& peradd(per &p)
+	{
+		this->age+=p.age;
+		return *this;
+	}
+	int age;
+};
+void test ()
+{
+	per p1(18);
+	
+	cout<<"p1 age  "<<p1.age<<endl;
+}
+void test1 ()
+{
+	per p1(18);
+	per p2(10);
+	p2.peradd(p1).peradd(p1).peradd(p1);
+	cout<<"p2 age  "<<p2.age<<endl;
+}
+int main ()
+{
+	test1 ();
+	system("pause");
+}
